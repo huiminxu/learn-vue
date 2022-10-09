@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <template id="app">
+        <div @click="init">
+                我是模版 {{counter}}
+        </div>
+    </template>
+    <script src="../邂逅 Vue3 和 Vue3 开发体验/vue.js"></script>
+    <script>
+        const app = Vue.createApp({
+            //methods 不能是箭头函数
+            template:'#app',
+            data() {
+                return {
+                    counter:0
+                }
+            },
+            methods: {
+                //箭头函数
+                init:()=>{
+                    //此时的 this 等同于 window
+                    console.log(this);
+                }
+            },
+        })
+        app.mount('#root');
+
+
+        const foo = function(){
+            console.log(this);
+        }
+        foo(); // window
+        const obj = { b:foo};
+        obj.b(); // obj
+    </script>
+</body>
+</html>
