@@ -10,24 +10,39 @@
     <div id="root"></div>
     <template id="app">
         <div @click="init">
+            <!-- Mustche -->
                 我是模版 {{counter}}
+                {{counter+10}}
+                {{message.split(' ').reverse().join() }}
+                {{ getReverse()}}
+                <div> {{show? 'hahha ':''}}</div>
+                <button @click="changeShow">切换</button>
         </div>
     </template>
     <script src="../邂逅 Vue3 和 Vue3 开发体验/vue.js"></script>
     <script>
         const app = Vue.createApp({
-            //methods 不能是箭头函数
+           
             template:'#app',
             data() {
                 return {
-                    counter:0
+                    counter:0,
+                    message:'women sji ',
+                    show:false
                 }
             },
+             //methods 不能是箭头函数
             methods: {
                 //箭头函数
                 init:()=>{
                     //此时的 this 等同于 window
                     console.log(this);
+                },
+                getReverse:function(){
+                    return this.message.split(' ').reverse().join();
+                },
+                changeShow(){
+                    this.show =!this.show;
                 }
             },
         })

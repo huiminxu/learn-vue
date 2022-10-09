@@ -637,6 +637,7 @@ export function applyOptions(instance: ComponentInternalInstance) {
             writable: true
           })
         } else {
+          // methods 中 this 的指向实例的proxy
           ctx[key] = methodHandler.bind(publicThis)
         }
         if (__DEV__) {
