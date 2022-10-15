@@ -8,6 +8,8 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- Vue2 template 模版中只能有一个根元素 -->
+    <!-- Vue3 template 模版中可以有多个根元素 -->
     <template id="app">
         <div @click="init">
             <!-- Mustche -->
@@ -18,6 +20,31 @@
                 <div> {{show? 'hahha ':''}}</div>
                 <button @click="changeShow">切换</button>
         </div>
+        <img src="" alt="">
+        <!-- v-bind -->
+        <div :class="['abc',data,isActive?'active':'',{'cur':false}]"></div>
+        <div style="color: red;background-color:yellow">yuansheng </div>    
+        <div :style="{color:'red',backgroundColor:'yellow','font-size':'16px'}"></div>
+        <div :style="[{color:'red',backgroundColor:'yellow','font-size':'16px'},obj]"> obj</div>
+        <!-- 这里的属性名称不能驼峰，动态属性 -->
+        <div :[attrname]="message">Hello World</div>
+
+         <!-- bind 属性直接绑定一个对象 -->
+         <div :a="attrname"></div>
+        
+         <div v-bind="obj"></div>    <!-- 等价不建议--> <div :="obj"></div>  
+         <!-- 事件 -->
+         <div @click="clickHandler"></div>
+         <div v-on="{click:clickFun,mouseout:mouseFun(1,$event)}">事件才能尽快撒的那句看到那v那就肯定能见到</div>
+
+
+        <!-- 数组 -->
+         <div v-for="(item,index) in books">{{item}}</div>
+         <!-- 对象 -->
+         <div v-for="(value,key,index) in movies">{{value}} - {{key}} -{{index}}</div>
+         <!-- 数字 -->
+         <div v-for="i in 10">{{i}}</div>
+         <div v-for="(i,index) in 10">{{i}} -{{index}}</div>
     </template>
     <script src="../邂逅 Vue3 和 Vue3 开发体验/vue.js"></script>
     <script>
@@ -28,7 +55,14 @@
                 return {
                     counter:0,
                     message:'women sji ',
-                    show:false
+                    show:false,
+                    obj:{
+                        border:'1px solid red',
+                        color:'red'
+                    },
+                    attrname:'class',
+                    books:['1124','2142','123'],
+                    movies:{'tit':'csddva','vas':'cdsvda',"cdvd":'dsacd'}
                 }
             },
              //methods 不能是箭头函数
@@ -43,6 +77,12 @@
                 },
                 changeShow(){
                     this.show =!this.show;
+                },
+                clickFun(event){ //事件
+                    console.log(event)
+                },
+                mouseFun(num,event){
+                    console.log(num,event);
                 }
             },
         })

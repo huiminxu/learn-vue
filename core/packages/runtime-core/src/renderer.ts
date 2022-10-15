@@ -1603,7 +1603,7 @@ function baseCreateRenderer(
       if (patchFlag & PatchFlags.KEYED_FRAGMENT) {
         // this could be either fully-keyed or mixed (some keyed some not)
         // presence of patchFlag means children are guaranteed to be arrays
-        patchKeyedChildren(
+        patchKeyedChildren(  
           c1 as VNode[],
           c2 as VNodeArrayChildren,
           container,
