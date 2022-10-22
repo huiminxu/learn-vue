@@ -31,14 +31,25 @@ v-show
 v-for
 
 # template 
-```<template v-if="***"> *****  </template>```
+```vue 
+<template v-if="***"> *****  </template>
+```
 
-```<template v-for="***"> *****  </template>```
+
+```vue
+<template v-for="***"> *****  </template>
+```
 
 
-# key
+# key （图）
 
 如果有 key 执行 patchKeyedChildren
 如果没有 key 执行 patchUnkeyedChildren 
 
+# 计算属性 computed
+```js
+ 
 
+```
+
+# vue Options-API
