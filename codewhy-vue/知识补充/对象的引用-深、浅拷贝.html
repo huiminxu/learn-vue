@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 引用赋值
+        const info={name:'saj',age:23};
+        const obj = info;
+        // 浅拷贝
+        const info1={name:'saj',age:23};
+        const obj1= Object.assign({},info);
+        //深拷贝
+        const info2={name:'saj',age:23};
+        const obj2= JSON.parse(JSON.stringify(info2));
+
+        //lodash
+        // _.clone
+        //_.cloneDeep
+    </script>
+</body>
+</html>
