@@ -3,7 +3,7 @@
   "version": "3.2.40",
   "packageManager": "pnpm@7.1.0",
   "scripts": {
-    "dev": "node scripts/dev.js",
+    "dev": "node scripts/dev.js --sourcemap",
     "build": "node scripts/build.js",
     "size": "run-s size-global size-baseline",
     "size-global": "node scripts/build.js vue runtime-dom -f global -p",
