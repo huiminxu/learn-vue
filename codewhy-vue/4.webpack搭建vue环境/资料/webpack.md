@@ -72,7 +72,7 @@ js 中引入 import "./css/style.css" 报错
    . css 文件的 loader
 
 ### 内联方式
-import "less-loader!style-loader!css-loader!../css/style.css";
+import "style-loader!css-loader!less-loader!../css/style.css";
 
  ### 配置方式
 modules:{
@@ -106,7 +106,9 @@ modules:{
 }
 
 
-## 
+## 处理图片 file-loader
+  
+
 
 
 # 页面中  
