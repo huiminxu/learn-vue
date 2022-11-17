@@ -74,7 +74,7 @@ js 中引入 import "./css/style.css" 报错
 ### 内联方式
 import "style-loader!css-loader!less-loader!../css/style.css";
 
- ### 配置方式
+### 配置方式
 modules:{
     rules:[{
         test:/\.css$/, //正则匹配
@@ -166,6 +166,19 @@ asset/source   替代 raw-loader
 
 ```
 
+
+
+# 插件（loader 做不了的事情）
+
+## 清除打包的文件 CleanWebpackPlugin
+npm install clean-webpack-plugin -D
+
+## 打包 HTML HtmlWebpackPlugin
+npm install html-webpack-plugin -D
+
+## CopyWebpackPlugin
+
+## 删除打包后的文件夹
 
 
 # 页面中  
