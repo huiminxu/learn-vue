@@ -106,8 +106,65 @@ modules:{
 }
 
 
+
 ## 处理图片 file-loader
-  
+npm install file-loader -D
+
+```js
+{
+    test:/\.(png|jpe?g|gif|svg)$/i,
+    use:{
+        // loader:'file-loader',
+        loader:'file-loader',
+        options:{
+            outputPath:'img',// 打包目录下的文件目录名称
+            name:"[name]_[hash:6].[ext]" //图片名称 
+    
+        }
+    }
+}
+```
+
+## url-loader 减少请求数量
+npm install url-loader -D
+```js
+{
+    test:/\.(png|jpe?g|gif|svg)$/i,
+    use:{
+        // loader:'file-loader',
+        loader:'url-loader',
+        options:{
+            name:"[name]_[hash:6].[ext]" //图片名称 
+            limit:100 *1024     //小于100kb
+        }
+    }
+}
+```
+
+## 资源模块类型 （asset module type） webpack5 开始
+<!-- 不需要安装loader -->
+asset/resource 替代 file-loader
+asset/inline   替代 url-loader
+asset/source   替代 raw-loader
+```js
+{
+    test:/\.(jpe?g|png|gif|svg)$/,
+    type:"asset/resource"
+}
+{
+    test:/\.(jpe?g|png|gif|svg)$/,
+    type:"asset",
+    generator:{
+        filename:"img/[name]_[hash:6][ext]"
+    },
+    parser:{
+        dataUrlCondition:{
+            maxSize: 100*1024
+        }
+    }
+}
+
+```
 
 
 
